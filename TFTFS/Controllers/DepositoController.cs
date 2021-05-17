@@ -1,41 +1,44 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using TFTFS.Models;
 using TFTFS.Utils;
 
 namespace TFTFS.Controllers
 {
-    public class UsuarioController : Controller
+    public class DepositoController : Controller
     {
-        // GET: UsuarioController
+        // GET: DepositoController
         public ActionResult Index()
         {
-            return View(IOUtils.ListaObjetosArquivo(new Usuario()));
+            return View(IOUtils.ListaObjetosArquivo(new Deposito()));
         }
 
-        // GET: UsuarioController/Details/5
+        // GET: DepositoController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: UsuarioController/Create
+        // GET: DepositoController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: UsuarioController/Create
+        // POST: DepositoController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Usuario model)
+        public ActionResult Create(Deposito model)
         {
             try
             {
-                model.Conta = IOUtils.GerarConta();
+                var usuario = IOUtils.GetUsuario(model.Conta);
+                usuario.Valor += model.Valor;
+                IOUtils.EditarUsuario(usuario);
                 IOUtils.Criar(model);
                 return RedirectToAction(nameof(Index));
             }
@@ -45,20 +48,19 @@ namespace TFTFS.Controllers
             }
         }
 
-        // GET: UsuarioController/Edit/5
+        // GET: DepositoController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View(IOUtils.GetUsuario(id));
+            return View();
         }
 
-        // POST: UsuarioController/Edit/5
+        // POST: DepositoController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, Usuario usuario)
+        public ActionResult Edit(int id, IFormCollection collection)
         {
             try
             {
-                IOUtils.EditarUsuario(usuario);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -67,13 +69,13 @@ namespace TFTFS.Controllers
             }
         }
 
-        // GET: UsuarioController/Delete/5
+        // GET: DepositoController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: UsuarioController/Delete/5
+        // POST: DepositoController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

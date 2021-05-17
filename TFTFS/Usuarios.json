@@ -1,10 +1,7 @@
 [
   {
+    "Conta": 1,
     "Nome": "Lucas",
-    "Valor": 20.0
-  },
-  {
-    "Nome": "Ana",
     "Valor": 30.0
   }
 ]
