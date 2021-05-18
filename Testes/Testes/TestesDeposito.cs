@@ -12,16 +12,16 @@ namespace Testes.Testes
         [Theory]
         [InlineData(0)]
         [InlineData(1)]
-        public void SaqueContaValido(int conta)
+        public void DepositoContaValido(int conta)
         {
             Assert.True(Validador.ValidateModel(new Deposito() { Conta = conta, Valor = SaqueValido.Valor }).Count == 0);
         }
         /*
         [Theory]
         [InlineData(null)]
-        public void SaqueContaInvalido(int conta)
+        public void DepositoContaInvalido(int conta)
         {
-            Assert.True(Validador.ValidateModel(new Saque() { Conta = conta, Valor = SaqueValido.Valor }).Count == 0);
+            Assert.True(Validador.ValidateModel(new Deposito() { Conta = conta, Valor = SaqueValido.Valor }).Count == 0);
         }*/
 
         [Theory]
@@ -29,7 +29,7 @@ namespace Testes.Testes
         [InlineData(0.02)]
         [InlineData(9999)]
         [InlineData(9998)]
-        public void SaqueValorValido(decimal valor)
+        public void DepositoValorValido(decimal valor)
         {
             Assert.True(Validador.ValidateModel(new Deposito() { Conta = SaqueValido.Conta, Valor = valor }).Count == 0);
         }
@@ -41,7 +41,7 @@ namespace Testes.Testes
         [InlineData(-2)]
         [InlineData(10000)]
         [InlineData(10001)]
-        public void SaqueValorInvalido(decimal valor)
+        public void DepositoValorInvalido(decimal valor)
         {
             Assert.False(Validador.ValidateModel(new Deposito() { Conta = SaqueValido.Conta, Valor = valor }).Count == 0);
         }
