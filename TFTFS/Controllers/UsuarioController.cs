@@ -35,6 +35,8 @@ namespace TFTFS.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                    return View();
                 model.Conta = IOUtils.GerarConta();
                 IOUtils.Criar(model);
                 return RedirectToAction(nameof(Index));

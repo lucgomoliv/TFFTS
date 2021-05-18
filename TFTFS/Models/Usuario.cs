@@ -17,14 +17,5 @@ namespace TFTFS.Models
         public decimal Valor { get; set; } = 0;
 
         public Usuario() { }
-
-        public Usuario(int conta, string nome, decimal valor)
-        {
-            if (nome.Length > 100)
-                throw new ArgumentOutOfRangeException();
-            Conta = conta;
-            Nome = nome;
-            Valor = valor;
-        }
     }
 }
