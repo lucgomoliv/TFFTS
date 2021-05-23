@@ -13,8 +13,7 @@ namespace TFTFS.Interfaces
         {
             var validationResults = new List<ValidationResult>();
             var ctx = new ValidationContext(this, null, null);
-            Validator.TryValidateObject(this, ctx, validationResults, true);
-            return validationResults.Count() == 0;
+            return Validator.TryValidateObject(this, ctx, validationResults, true);
         }
     }
 }
