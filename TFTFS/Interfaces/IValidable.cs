@@ -11,9 +11,7 @@ namespace TFTFS.Interfaces
         //Código retirado do stack overflow https://stackoverflow.com/a/4331964 e adaptado
         public bool Validate()
         {
-            var validationResults = new List<ValidationResult>();
-            var ctx = new ValidationContext(this, null, null);
-            return Validator.TryValidateObject(this, ctx, validationResults, true);
+            return Validator.TryValidateObject(this, new ValidationContext(this, null, null), null, true);
         }
     }
 }
