@@ -14,7 +14,7 @@ namespace Testes.Testes
         [InlineData(1)]
         public void SaqueContaValido(int conta)
         {
-            Assert.True(Validador.ValidateModel(new Saque() { Conta = conta, Valor = SaqueValido.Valor }).Count == 0);
+            Assert.True(new Saque() { Conta = conta, Valor = SaqueMock.Valor }.Validate());
         }
         /*
         [Theory]
@@ -31,7 +31,7 @@ namespace Testes.Testes
         [InlineData(9998)]
         public void SaqueValorValido(decimal valor)
         {
-            Assert.True(Validador.ValidateModel(new Saque() { Conta = SaqueValido.Conta, Valor = valor }).Count == 0);
+            Assert.True(new Saque() { Conta = SaqueMock.Conta, Valor = valor }.Validate());
         }
 
         [Theory]
@@ -43,7 +43,7 @@ namespace Testes.Testes
         [InlineData(10001)]
         public void SaqueValorInvalido(decimal valor)
         {
-            Assert.False(Validador.ValidateModel(new Saque() { Conta = SaqueValido.Conta, Valor = valor }).Count == 0);
+            Assert.False(new Saque() { Conta = SaqueMock.Conta, Valor = valor }.Validate());
         }
     }
 }

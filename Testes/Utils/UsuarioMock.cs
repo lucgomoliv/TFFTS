@@ -4,9 +4,10 @@ using System.Text;
 
 namespace Testes.Utils
 {
-    public class SaqueValido
+    public class UsuarioMock
     {
         public static readonly int Conta = 1;
-        public static readonly decimal Valor = 10;
+        public static readonly string Nome = "Lucas Gomes Oliveira";
+        public static readonly decimal Valor = 500;
     }
 }

@@ -16,7 +16,7 @@ namespace Testes.Testes
         [InlineData("nR")]
         public void UsuarioNomeValido(string nome)
         {
-            Assert.True(Validador.ValidateModel(new Usuario() { Conta = UsuarioValido.Conta, Nome = nome, Valor = UsuarioValido.Valor }).Count == 0);
+            Assert.True(new Usuario() { Conta = UsuarioMock.Conta, Nome = nome, Valor = UsuarioMock.Valor }.Validate());
         }
 
         [Theory]
@@ -26,7 +26,7 @@ namespace Testes.Testes
         [InlineData("mQMYJvqZRk4OLnD1pu24BKjYJlaJeRDMUCJQHvwDnST8KHVb4KLWhllN8rsiZ0QQd7Urui4bVzxy9JZFHYTKRu86OQn9yULjvJceOn")]
         public void UsuarioNomeInvalido(string nome)
         {
-            Assert.False(Validador.ValidateModel(new Usuario() { Conta = UsuarioValido.Conta, Nome = nome, Valor = UsuarioValido.Valor }).Count == 0);
+            Assert.False(new Usuario() { Conta = UsuarioMock.Conta, Nome = nome, Valor = UsuarioMock.Valor }.Validate());
         }
 
         [Theory]
@@ -36,7 +36,7 @@ namespace Testes.Testes
         [InlineData(999.8)]
         public void UsuarioValorValido(decimal valor)
         {
-            Assert.True(Validador.ValidateModel(new Usuario() { Conta = UsuarioValido.Conta, Nome = UsuarioValido.Nome, Valor = valor }).Count == 0);
+            Assert.True(new Usuario() { Conta = UsuarioMock.Conta, Nome = UsuarioMock.Nome, Valor = valor }.Validate());
         }
 
         [Theory]
@@ -46,7 +46,7 @@ namespace Testes.Testes
         [InlineData(1001)]
         public void UsuarioValorInvalido(decimal valor)
         {
-            Assert.False(Validador.ValidateModel(new Usuario() { Conta = UsuarioValido.Conta, Nome = UsuarioValido.Nome, Valor = valor }).Count == 0);
+            Assert.False(new Usuario() { Conta = UsuarioMock.Conta, Nome = UsuarioMock.Nome, Valor = valor }.Validate());
         }
     }
 }
