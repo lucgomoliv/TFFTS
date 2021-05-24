@@ -35,7 +35,7 @@ namespace TFTFS.Controllers
         {
             try
             {
-                if (!ModelState.IsValid)
+                if (!model.Validate())
                     return View();
                 model.Conta = IOUtils.GerarConta();
                 IOUtils.Criar(model);

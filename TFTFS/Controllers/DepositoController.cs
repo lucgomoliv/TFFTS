@@ -36,6 +36,8 @@ namespace TFTFS.Controllers
         {
             try
             {
+                if (!model.Validate())
+                    return View();
                 var usuario = IOUtils.GetUsuario(model.Conta);
                 usuario.Valor += model.Valor;
                 IOUtils.EditarUsuario(usuario);
