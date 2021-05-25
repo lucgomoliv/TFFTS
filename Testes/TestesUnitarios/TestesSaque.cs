@@ -5,7 +5,7 @@ using Testes.Utils;
 using TFTFS.Models;
 using Xunit;
 
-namespace Testes.Testes
+namespace Testes.TestesUnitarios
 {
     public class TestesSaque
     {
