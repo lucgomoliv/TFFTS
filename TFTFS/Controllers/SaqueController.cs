@@ -32,7 +32,7 @@ namespace TFTFS.Controllers
 
         // POST: SaqueController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Create(Saque model)
         {
             try

@@ -13,7 +13,7 @@ namespace TFTFS.Utils
         public static List<T> ListaObjetosArquivo<T>(T model)
         {
             string path = $"{model.GetType().Name}s.json";
-            if (!File.Exists(path))
+            if (!File.Exists(path) || File.ReadAllText(path) == "")
                 File.WriteAllText(path, "[]");
             return JArray.Parse(File.ReadAllText(path)).ToObject<List<T>>();
         }

@@ -30,7 +30,7 @@ namespace TFTFS.Controllers
 
         // POST: UsuarioController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Create(Usuario model)
         {
             try
@@ -55,7 +55,7 @@ namespace TFTFS.Controllers
 
         // POST: UsuarioController/Edit/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Edit(int id, Usuario usuario)
         {
             try

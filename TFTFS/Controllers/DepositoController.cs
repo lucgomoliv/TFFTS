@@ -31,7 +31,7 @@ namespace TFTFS.Controllers
 
         // POST: DepositoController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Create(Deposito model)
         {
             try
